@@ -17,9 +17,8 @@ import java.util.UUID;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("userId")
-    UUID userId;
+    String userId;
     String kcUserId;
     String username;
     String firstName;

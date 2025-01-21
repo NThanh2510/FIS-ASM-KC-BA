@@ -118,9 +118,7 @@ public class UserImpl implements UserService {
                                     .build()))
                             .build());
             String KcUserId = extracUserId(creationResponse);
-            log.info("User ID: {}", KcUserId);
-
-            var user = userMapper.toUser(request);
+            var user = userRepository.findByUsername(request.getUsername()).orElseThrow();
             user.setKcUserId(KcUserId);
             user.setDob(LocalDate.now());
             user = userRepository.save(user);
